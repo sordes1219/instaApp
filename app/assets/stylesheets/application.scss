@@ -1,0 +1,24 @@
+@import 'variables';
+@import 'form';
+
+body {
+  margin: 0;
+  font-family: $base-font-family;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: $secondly-font-color;
+  font-size: $small-font-size;
+  opacity: $opacity;
+}
+
+.top-image{
+  width: 100%;
+  height: $top-image-height;
+}
+
+.container {
+  padding: $base-padding-size;
+}
