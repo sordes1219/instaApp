@@ -1,0 +1,15 @@
+= image_tag 'nobunaga.jpg', class: 'top-image'
+.container
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field
+      = f.label :email, class: 'text_small'
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'text'
+    .field
+      = f.label :password, class: 'text_small'
+      %br/
+      = f.password_field :password, autocomplete: "current-password", class: 'text'
+    .link
+      = render "devise/shared/links", class: 'text_small'
+    .actions
+      = f.submit "Log in"
