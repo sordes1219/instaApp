@@ -1,0 +1,38 @@
+@import 'variables';
+
+.article {
+
+  $img-radius: 40px;
+  $img-margin: 18px;
+  $base-height: 60px;
+
+  .avatar {
+
+    height: $base-height;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+    &-img{
+      width: $img-radius;
+      height: $img-radius;
+      border-radius: 100%;
+      margin-right: $img-margin;
+    }
+  }
+
+  #article_pictures {
+    display: none;
+  }
+
+  .btn-label {
+    border: 1px solid $primary-border-color;
+    font-size: $small-font-size;
+    padding: $base-padding-size * 0.5;
+  }
+
+}
+
+#article-post-btn {
+  cursor: pointer;
+}

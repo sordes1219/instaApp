@@ -1,0 +1,15 @@
+@import 'variables';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: $small-font-weight;
+
+  .hidden {
+    visibility: hidden;
+  }
+
+  a {
+    font-size: $base-font-size;
+  }
+}

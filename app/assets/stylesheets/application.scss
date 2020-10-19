@@ -1,11 +1,21 @@
 @import 'variables';
 @import 'form';
+@import 'profile';
+@import 'header';
+@import 'article';
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
 
 body {
   margin: 0;
   font-family: $base-font-family;
-  box-sizing: border-box;
-}
+  font-size: $base-font-size;
+  font-weight: $base-font-weight;
+  color: $primary-font-color;
+ }
 
 a {
   text-decoration: none;
@@ -21,4 +31,8 @@ a {
 
 .container {
   padding: $base-padding-size;
+}
+
+.camera-icon {
+  color: black;
 }

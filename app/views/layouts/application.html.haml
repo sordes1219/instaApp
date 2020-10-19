@@ -8,8 +8,28 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     %meta{:content => "width=device-width, inicial-scale=1.0", :name => "viewport"}/
-    %link{:href => "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+    -# %link{:href => "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+    %link{:href => "https://use.fontawesome.com/releases/v5.6.1/css/all.css", :rel => "stylesheet"}/
   %body
+    %i{class: "fas fa-camera camera-icon fa-lg"}
     - if signed_in?
-      = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
+      %header
+        .container
+          .header
+            .header-left
+              = display_icon
+            .header-center
+              = display_title
+            - if current_page?(profile_path(current_user))
+              .header-right{ class: "#{hidden_btn(@user)}"}
+                = display_btn
+            - elsif current_page?(new_article_path)
+              .header-right#article-post-btn
+                = display_btn
+            - else
+              .header-right
+                = display_btn
     = yield
+    - if signed_in?
+      = link_to 'logout', destroy_user_session_path, data: { method: 'delete' }
+    
