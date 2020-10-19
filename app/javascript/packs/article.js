@@ -10,7 +10,6 @@ const fileCheck = () => {
    })
 }
 
-
 document.addEventListener('DOMContentLoaded',() => {
 
   fileCheck()
