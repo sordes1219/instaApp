@@ -1,0 +1,48 @@
+@import 'variables';
+
+.profile {
+
+  $img-radius: 40px;
+  $img-padding: 4px;
+  $base-height: 200px;
+
+  .avatar {
+
+    height: $base-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    &-img{
+      width: $img-radius;
+      height: $img-radius;
+      border-radius: 100%;
+      padding: $img-padding;
+      border: 1px solid red;
+    }
+  }
+
+  .counter {
+
+    height: $base-height * 0.5;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &-number {
+      text-align: center;
+      font-weight: $small-font-weight;
+    }
+
+    &-title {
+      text-align: center;
+      font-size: $base-font-size - 2px;
+      color: $secondly-font-color;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+}
