@@ -1,5 +1,27 @@
 .container.article
-  .header
-  .body
-    index
-  .footer
+  - article_num = 0
+  - @articles.each do |article|
+    - article_num += 1
+    .child-container
+      .header
+        = image_tag article.user.profile.avatar, class: 'avatar-img'
+        .header-content
+          %div= article.user.account
+          .created-at
+            = article.calc_elapsed_days
+      .body
+        %div{ id: "grid-container-#{article_num.to_s}" }
+          - pictures_num = article.pictures.length
+          - pictures_num.times do |n| 
+            = image_tag article.pictures[n], class: 'item', id: "grid-item-#{article_num.to_s}-#{n.to_s}"
+      .footer
+        .icons
+          %i{ class: "far fa-heart icons" }
+          %i{ class: "far fa-comment icons" }
+          %i{ class: "fas fa-share-alt icons" }
+        %div
+          = 'Jasmine and 12,000 other liked your post'
+        %div
+          = article.user.account
+          = article.description
+= javascript_pack_tag 'article-index'

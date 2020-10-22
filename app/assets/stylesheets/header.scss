@@ -4,12 +4,14 @@
   display: flex;
   justify-content: space-between;
   font-weight: $small-font-weight;
-
-  .hidden {
-    visibility: hidden;
-  }
+  height: $header-height;
 
   a {
     font-size: $base-font-size;
   }
+
+  .camera-icon {
+    color: black;
+  }
+  
 }

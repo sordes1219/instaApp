@@ -33,6 +33,11 @@ a {
   padding: $base-padding-size;
 }
 
-.camera-icon {
-  color: black;
+.hidden {
+  visibility: hidden;
 }
+
+.none {
+  display: none;
+}
+
