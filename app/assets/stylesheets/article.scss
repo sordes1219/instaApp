@@ -78,6 +78,10 @@
 
     .icons {
       margin-right: $base-margin-size * 0.25;
+
+      a {
+        color: $primary-font-color;
+      }
     }
 
   }

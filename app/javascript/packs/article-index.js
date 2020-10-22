@@ -1,7 +1,17 @@
 import $ from 'jquery'
 import axios from 'modules/axios'
 
+const Twitter = require('twitter') 
+
+const client = new Twitter({
+  consumer_key:'【API key】',
+	consumer_secret: '【API secret key】',
+	access_token_key: '【Access token】',
+	access_token_secret: '【Access token secret】'
+})
+
 document.addEventListener('DOMContentLoaded', () => {
+  
   axios.get(`/api/picture`)
     .then((response) => {
       const length = response.data.length
@@ -21,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       })
     })
+
+  
 
 })
 
