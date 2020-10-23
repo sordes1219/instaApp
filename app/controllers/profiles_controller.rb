@@ -1,14 +1,14 @@
 class ProfilesController < ApplicationController
 
   before_action :authenticate_user!
-  
+
   def show
-    @profile = current_user.profile
-    @user = current_user
+    @user = User.find(params[:id])
+    @profile = @user.prepare_profile
   end
 
   def update
-    @profile = current_user.profile || current_user.profile.build
+    @profile = current_user.prepare_profile
     @profile.assign_attributes(profile_params)
     if @profile.save
       redirect_to profile_path, notice: 'Update your profile.'

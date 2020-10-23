@@ -17,6 +17,7 @@ class Article < ApplicationRecord
   validates :pictures, presence: true
 
   belongs_to :user
+  has_many :likes, dependent: :destroy
   has_many_attached :pictures
 
   def calc_elapsed_days

@@ -2,11 +2,11 @@ class Api::PicturesController < Api::ApplicationController
   
   def show
     articles = Article.all
-    data = []
+    pictures = []
     articles.each do |article|
-      data.push(article.pictures.length)
+      pictures.push({ article_id: article.id, picture_num: article.pictures.length})
     end
-    render json: { length: data }.to_json
+    render json: { pictures: pictures }.to_json
   end
 
 end

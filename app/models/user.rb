@@ -25,4 +25,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :profile, dependent: :destroy
   has_many :articles, dependent: :destroy
+  has_many :likes, dependent: :destroy
+
+  def prepare_profile
+    profile || build_profile
+  end
+
+  def hasliked(article_id)
+    articles.find_by(article_id: article_id)
+  end
+
 end

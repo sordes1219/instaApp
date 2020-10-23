@@ -1,3 +1,4 @@
+import Axios from 'axios'
 import $ from 'jquery'
 
 const checkFileExist = () => {

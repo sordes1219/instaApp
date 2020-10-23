@@ -1,8 +1,9 @@
 .container.profile
   .avatar
-    = form_with(model: @profile, url: profile_path(current_user), method: 'put', local: true, class: 'none', id: 'profile-post-form') do |f|
-      = f.file_field :avatar, id: 'profile-avatar'
-      = f.submit
+    - if @user == current_user
+      = form_with(model: @profile, url: profile_path(current_user), method: 'put', local: true, class: 'none', id: 'profile-post-form') do |f|
+        = f.file_field :avatar, id: 'profile-avatar'
+        = f.submit
     - if @profile.avatar.attached?
       = image_tag @profile.avatar, class: 'avatar-img', id: 'display-profile-avatar'
     - else

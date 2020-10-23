@@ -1,7 +1,5 @@
 .container.article
-  - article_num = 0
   - @articles.each do |article|
-    - article_num += 1
     .child-container
       .header
         = image_tag article.user.profile.avatar, class: 'avatar-img'
@@ -10,17 +8,16 @@
           .created-at
             = article.calc_elapsed_days
       .body
-        %div{ id: "grid-container-#{article_num.to_s}" }
+        %div{ id: "grid-container-#{article.id}" }
           - pictures_num = article.pictures.length
           - pictures_num.times do |n| 
-            = image_tag article.pictures[n], class: 'item', id: "grid-item-#{article_num.to_s}-#{n.to_s}"
+            = image_tag article.pictures[n], class: 'item', id: "grid-item-#{article.id}-#{n}"
       .footer
         .icons
-          %i{ class: "far fa-heart icons" }
-          %i{ class: "far fa-comment icons" }
+          %i{ class: "far fa-heart icons", id: "heart-#{article.id}", article_id: "#{article.id}" }
+          %i{ class: "far fa-comment icons", id: "comment-#{article.id}" }
           %a{ href:"https://twitter.com/share?ref_src=twsrc%5Etfw" ,class:"twitter-share-button","data-show-count":"false"}
             %i{ class: "fas fa-share-alt icons" }
-          -# %script{ async:"", src:"https://platform.twitter.com/widgets.js",charset:"utf-8"}
           %div
           = 'Jasmine and 12,000 other liked your post'
         %div
