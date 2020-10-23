@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     resource :picture, only: %i[show]
     resources :likes, only: %i[index]
     scope '/articles/:article_id' do
-      resource :like, only: %i[show create destroy]
+      resource :like, only: %i[create destroy]
+      resources :comments, only: %i[index create destroy]
     end
   end
 

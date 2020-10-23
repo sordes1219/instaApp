@@ -26,13 +26,11 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :articles, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  
 
   def prepare_profile
     profile || build_profile
-  end
-
-  def hasliked(article_id)
-    articles.find_by(article_id: article_id)
   end
 
 end

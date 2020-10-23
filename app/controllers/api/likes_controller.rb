@@ -7,10 +7,6 @@ class Api::LikesController < Api::ApplicationController
     render json: likes
   end
 
-  def show
-
-  end
-
   def create
     article = Article.find(params[:article_id])
     article.likes.create!(user_id: current_user.id)
