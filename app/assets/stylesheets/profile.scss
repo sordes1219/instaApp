@@ -2,7 +2,7 @@
 
 .profile {
 
-  $img-radius: 40px;
+  $img-radius: 84px;
   $img-padding: 4px;
   $base-height: 200px;
 
@@ -18,7 +18,8 @@
       height: $img-radius;
       border-radius: 100%;
       padding: $img-padding;
-      border: 1px solid red;
+      border: $base-border-size solid red;
+      cursor: pointer;
     }
   }
 
@@ -39,10 +40,6 @@
       font-size: $base-font-size - 2px;
       color: $secondly-font-color;
     }
-  }
-
-  .hidden {
-    display: none;
   }
 
 }

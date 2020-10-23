@@ -1,5 +1,26 @@
 .container.article
-  .header
-  .body
-    index
-  .footer
+  - @articles.each do |article|
+    .child-container
+      .header
+        = image_tag article.user.profile.avatar, class: 'avatar-img'
+        .header-content
+          %div= article.user.account
+          .created-at
+            = article.calc_elapsed_days
+      .body
+        %div{ id: "grid-container-#{article.id}" }
+          - pictures_num = article.pictures.length
+          - pictures_num.times do |n| 
+            = image_tag article.pictures[n], class: 'item', id: "grid-item-#{article.id}-#{n}"
+      .footer
+        .icons
+          %i{ class: "far fa-heart icons", id: "heart-#{article.id}", article_id: "#{article.id}" }
+          %i{ class: "far fa-comment icons", id: "comment-#{article.id}" }
+          %a{ href:"https://twitter.com/share?ref_src=twsrc%5Etfw" ,class:"twitter-share-button","data-show-count":"false"}
+            %i{ class: "fas fa-share-alt icons" }
+          %div
+          = 'Jasmine and 12,000 other liked your post'
+        %div
+          = article.user.account
+          = article.description
+= javascript_pack_tag 'article-index'

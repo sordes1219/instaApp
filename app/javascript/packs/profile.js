@@ -1,6 +1,6 @@
 import $ from 'jquery'
 
-const fileCheck = () => {
+const checkFileExist = () => {
   $('#profile-post-form').on('submit', () => {
     const files = $('#profile-avatar')[0].files
     if(files.length === 0){
@@ -12,7 +12,7 @@ const fileCheck = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   
-  fileCheck()
+  checkFileExist()
 
   $('#display-profile-avatar').on('click', () => {
       $('#profile-avatar').click()

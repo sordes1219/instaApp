@@ -8,7 +8,7 @@
   font-size: $base-font-size;
   font-family: $base-font-family;
   border: none;
-  border-bottom: 1px solid $primary-border-color;
+  border-bottom: $base-border-size solid $primary-border-color;
   padding: $base-padding-size * 0.5 ;
 
   &_small {

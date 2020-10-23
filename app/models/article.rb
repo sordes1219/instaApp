@@ -17,5 +17,20 @@ class Article < ApplicationRecord
   validates :pictures, presence: true
 
   belongs_to :user
+  has_many :likes, dependent: :destroy
   has_many_attached :pictures
+
+  def calc_elapsed_days
+    now = Time.zone.now
+
+    elapsed_days = ((now - created_at) / 3600 / 24).to_i
+    elapsed_hours = ((now - created_at) / 3600).to_i
+    
+    if elapsed_days.positive?
+      "#{elapsed_days} days ago"
+    else
+      "#{elapsed_hours} hours ago"
+    end
+  end
+
 end
