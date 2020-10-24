@@ -1,7 +1,7 @@
 .container.comment
   - @comments.each do |comment|
     .child-container
-      = image_tag comment.user.profile.avatar, class: 'avatar-img'
+      = image_tag comment.user.avatar_image, class: 'avatar-img'
       .content
         .account
           = comment.user.account
@@ -9,5 +9,7 @@
           = comment.description
 .comment-footer
   .comment-footer-container
-    %i{ class: "far fa-comment icons fa-lg", id: "new-comment-post" }
-    = text_area_tag :comment_content, ''
+    %i{ class: "far fa-comment icons fa-lg", id: "post-new-comment", article_id: "#{@article.id}" }
+    = text_field_tag :comment_content, ''
+
+=javascript_pack_tag 'comment'

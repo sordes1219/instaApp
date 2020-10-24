@@ -1,9 +1,6 @@
 .container.article
   .avatar
-    - if current_user.profile.avatar.attached?
-      = image_tag current_user.profile.avatar, class: 'avatar-img', id: 'display-profile-avatar'
-    - else
-      = image_tag 'nobunaga.jpg', class: 'avatar-img', id: 'display-profile-avatar'
+    = image_tag current_user.avatar_image, class: 'avatar-img', id: 'display-profile-avatar'
     %p= current_user.account
   .form
     = form_with(model: @article, url: articles_path, method: 'post', id: 'article-post-form') do |f|

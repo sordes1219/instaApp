@@ -56,3 +56,16 @@ a {
   }
 }
 
+.icons {
+  margin-right: $base-margin-size * 0.25;
+  cursor: pointer;
+  
+  a {
+    color: $primary-font-color;
+  }
+
+  .active {
+    color: $primary-heart-color;
+  }
+
+}
