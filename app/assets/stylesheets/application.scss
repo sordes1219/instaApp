@@ -3,6 +3,7 @@
 @import 'profile';
 @import 'header';
 @import 'article';
+@import 'comment';
 
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
@@ -39,5 +40,19 @@ a {
 
 .none {
   display: none;
+}
+
+.avatar {
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  
+  &-img{
+    width: $img-radius;
+    height: $img-radius;
+    border-radius: 100%;
+    margin-right: $img-margin;
+  }
 }
 

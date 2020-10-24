@@ -1,0 +1,13 @@
+.container.comment
+  - @comments.each do |comment|
+    .child-container
+      = image_tag comment.user.profile.avatar, class: 'avatar-img'
+      .content
+        .account
+          = comment.user.account
+        .description
+          = comment.description
+.comment-footer
+  .comment-footer-container
+    %i{ class: "far fa-comment icons fa-lg", id: "new-comment-post" }
+    = text_area_tag :comment_content, ''

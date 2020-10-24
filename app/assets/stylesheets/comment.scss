@@ -1,0 +1,53 @@
+@import 'variables';
+
+$comment-box-height: 42px;
+$footer-bottom-position: 2.5%;
+
+.comment {
+
+  .child-container {
+    display: flex;
+    height: 100px;
+    width: 100%;
+  }
+
+  .account {
+    font-size: $base-font-size;
+  }
+
+  .description {
+    font-size: $base-font-size - 2px;
+    color: $secondly-font-color;
+  }
+
+  &-footer {
+
+    position: absolute;
+    bottom: $footer-bottom-position;
+    width: 100%;
+    padding: $base-padding-size;
+        
+    &-container {
+  
+      display: flex;
+      align-items: center;
+      
+      padding: $base-padding-size - 6px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+  
+      textarea {
+        width: 100%;
+        height: $comment-box-height;
+        padding: $base-padding-size - 10px;
+        border: none;
+      }
+  
+    }
+    
+  }
+  
+
+}
+
+
+

@@ -2,26 +2,10 @@
 
 .article {
 
-  $img-radius: 40px;
-  $img-margin: 18px;
   $base-height: 60px;
   $grid-gap: 7px;
   $grid-column-size: 1fr;
   $grid-row-size: 100px;
-
-  .avatar {
-
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    
-    &-img{
-      width: $img-radius;
-      height: $img-radius;
-      border-radius: 100%;
-      margin-right: $img-margin;
-    }
-  }
 
   #article_pictures {
     display: none;
