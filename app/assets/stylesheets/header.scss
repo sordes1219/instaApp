@@ -1,28 +1,19 @@
 @import 'variables';
 
-header {
-  background-color: white;
-  position: fixed;
-  top: 0px;
-  z-index: 10;
-  width: 100%;
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: $small-font-weight;
-    height: $header-height;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: $small-font-weight;
+  height: $header-height;
 
-    a {
-      font-size: $base-font-size;
-    }
-  
-    .camera-icon {
-      color: black;
-    }
-    
+  a {
+    font-size: $base-font-size;
   }
 
+  .camera-icon {
+    color: black;
+  }
+  
 }
 
