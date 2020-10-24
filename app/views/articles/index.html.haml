@@ -13,15 +13,15 @@
           - pictures_num.times do |n| 
             = image_tag article.pictures[n], class: 'item', id: "grid-item-#{article.id}-#{n}"
       .footer
-        .icons
-          %i{ class: "far fa-heart icons", id: "heart-#{article.id}", article_id: "#{article.id}" }
-          = link_to article_comments_path(article) do 
-            %i{ class: "far fa-comment icons", id: "comment-#{article.id}" }
-          = link_to "https://twitter.com/share?ref_src=twsrc%5Etfw", class:"twitter-share-button", "data-show-count":"false"  do
-            %i{ class: "fas fa-share-alt icons" }
-          %div
-          = 'Jasmine and 12,000 other liked your post'
+        - if signed_in? 
+          .icons
+            %i{ class: "far fa-heart icons", id: "heart-#{article.id}", article_id: "#{article.id}" }
+            = link_to article_comments_path(article) do 
+              %i{ class: "far fa-comment icons", id: "comment-#{article.id}" }
+            = link_to "https://twitter.com/share?ref_src=twsrc%5Etfw", class:"twitter-share-button", "data-show-count":"false"  do
+              %i{ class: "fas fa-share-alt icons" }
+            %div
+            = 'Jasmine and 12,000 other liked your post'
         %div
-          = article.user.account
           = article.description
 = javascript_pack_tag 'article-index'
