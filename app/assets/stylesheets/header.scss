@@ -3,6 +3,7 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-weight: $small-font-weight;
   height: $header-height;
 
@@ -15,3 +16,4 @@
   }
   
 }
+

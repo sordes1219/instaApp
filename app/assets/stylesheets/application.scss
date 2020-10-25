@@ -3,6 +3,7 @@
 @import 'profile';
 @import 'header';
 @import 'article';
+@import 'comment';
 
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
@@ -41,3 +42,30 @@ a {
   display: none;
 }
 
+.avatar {
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  
+  &-img{
+    width: $img-radius;
+    height: $img-radius;
+    border-radius: 100%;
+    margin-right: $img-margin;
+  }
+}
+
+.icons {
+  margin-right: $base-margin-size * 0.25;
+  cursor: pointer;
+  
+  a {
+    color: $primary-font-color;
+  }
+
+  .active {
+    color: $primary-heart-color;
+  }
+
+}

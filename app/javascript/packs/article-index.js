@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
           $(`#grid-item-${item.article_id}-0`).addClass('ptn2')
           $(`#grid-item-${item.article_id}-1`).addClass('hidden')
           $(`#grid-item-${item.article_id}-2`).addClass('hidden')
-        } else if(item.num === 2){
+        } else if(item.picture_num === 2){
           $(`#grid-item-${item.article_id}-0`).addClass('ptn1')
           $(`#grid-item-${item.article_id}-1`).addClass('ptn1')
           $(`#grid-item-${item.article_id}-2`).addClass('hidden')

@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+  
+  before_action :authenticate_user!, only: %i[new create]
+
   def new
     @article = current_user.articles.build
   end
