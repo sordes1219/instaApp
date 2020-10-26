@@ -11,13 +11,15 @@ Rails.application.routes.draw do
   resources :articles, only: %i[new create index] do
     resources :comments, only: %i[index create destroy]
   end
-  
 
   namespace :api, defaults: {format: :json} do
     resource :picture, only: %i[show]
     resources :likes, only: %i[index]
     scope '/articles/:article_id' do
       resource :like, only: %i[create destroy]
+    end
+    scope '/profiles/:profile_id' do
+      resource :relationship, only: %i[create destroy]
     end
   end
 

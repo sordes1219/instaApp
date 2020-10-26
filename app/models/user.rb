@@ -27,7 +27,12 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
-  
+
+  has_many :follower_relationship, foreign_key: :following_id, class_name: 'Relationship', dependent: :destroy
+  has_many :followers, through: :follower_relationship, source: :follower
+
+  has_many :following_relationship, foreign_key: :follower_id, class_name: 'Relationship', dependent: :destroy
+  has_many :followings, through: :following_relationship, source: :following
 
   def prepare_profile
     profile || build_profile
