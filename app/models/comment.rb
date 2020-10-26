@@ -22,7 +22,7 @@ class Comment < ApplicationRecord
 
   private
   def sendmail
-    CommentMailer.new_comment(article).deliver_now
+    CommentMailer.new_comment(article).deliver_later
   end
 
 end
