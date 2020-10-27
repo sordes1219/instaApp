@@ -1,0 +1,12 @@
+@import 'variables';
+
+
+.userlist {
+
+  .child-container {
+    display: flex;
+    align-items: center;
+    height: $child-container-height * 0.75;
+    border-bottom: 1px solid $secondly-border-color;
+  }
+}

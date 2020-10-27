@@ -4,20 +4,19 @@
       = form_with(model: @profile, url: profile_path(current_user), method: 'put', local: true, class: 'none', id: 'profile-post-form') do |f|
         = f.file_field :avatar, id: 'profile-avatar'
         = f.submit
-    - if @profile.avatar.attached?
-      = image_tag @profile.avatar, class: 'avatar-img', id: 'display-profile-avatar'
-    - else
-      = image_tag 'nobunaga.jpg', class: 'avatar-img', id: 'display-profile-avatar'
+    = image_tag @user.avatar_image, class: 'avatar-img', id: 'display-profile-avatar'
   .counter
     .counter-container
-      .counter-number= 44
+      .counter-number= @user.articles.count
       .counter-title= 'Posts'
-    .counter-container
-      .counter-number= 110
-      .counter-title= 'Followers' 
-    .counter-container
-      .counter-number= 44
-      .counter-title= 'Followings' 
+    = link_to follower_path(@user) do	
+      .counter-container
+        .counter-number= @user.followers.count
+        .counter-title= 'Followers' 
+    = link_to following_path(@user) do
+      .counter-container
+        .counter-number= @user.followings.count
+        .counter-title= 'Followings' 
   .image
 
 = javascript_pack_tag 'profile'

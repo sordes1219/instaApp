@@ -1,0 +1,5 @@
+.container.userlist
+  - userlist.each do |user|
+    .child-container
+      = image_tag user.avatar_image, class: 'avatar-img'
+      = user.account

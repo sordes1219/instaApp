@@ -9,7 +9,7 @@ $footer-bottom-position: 2.5%;
 
   .child-container {
     display: flex;
-    height: 100px;
+    height: $child-container-height;
     width: 100%;
   }
 
