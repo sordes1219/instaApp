@@ -7,7 +7,13 @@ Rails.application.routes.draw do
 
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :profiles, only: %i[show update]
+  
+  scope '/users/:user_id' do
+    resource :profile, only: %i[show update]
+    resource :following, only: %i[show]
+    resource :follower, only: %i[show]
+  end
+  
   resources :articles, only: %i[new create index] do
     resources :comments, only: %i[index create destroy]
   end
@@ -18,7 +24,7 @@ Rails.application.routes.draw do
     scope '/articles/:article_id' do
       resource :like, only: %i[create destroy]
     end
-    scope '/profiles/:profile_id' do
+    scope '/users/:user_id/profile/' do
       resource :relationship, only: %i[create destroy]
     end
   end

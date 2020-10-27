@@ -2,7 +2,6 @@ import $ from 'jquery'
 import axios from 'modules/axios'
 
 document.addEventListener('DOMContentLoaded' , () => {
-
   $('#post-new-comment').on('click', () => {
     const description = $('#comment_content').val()
     const articleId = $('#post-new-comment').attr('article_id')
