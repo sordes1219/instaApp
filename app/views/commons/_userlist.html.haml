@@ -1,5 +1,6 @@
 .container.userlist
   - userlist.each do |user|
     .child-container
-      = image_tag user.avatar_image, class: 'avatar-img'
+      = link_to profile_path(user) do
+        = image_tag user.avatar_image, class: 'avatar-img'
       = user.account
