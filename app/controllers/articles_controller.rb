@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all
+    @articles = Article.all.order('created_at DESC')
   end
 
   private

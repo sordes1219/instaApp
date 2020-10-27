@@ -7,6 +7,26 @@
   $grid-column-size: 1fr;
   $grid-row-size: 100px;
 
+  .switch {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: $base-margin-size;
+
+    #switch-left {
+      padding: $base-padding-size * 0.5;
+      border-right: 1px solid $secondly-border-color;
+    }
+
+    #switch-right {
+      padding: $base-padding-size * 0.5;
+    }
+
+    .active {
+      color: $primary-font-color;
+    }
+
+  }
+
   #article_pictures {
     display: none;
   }

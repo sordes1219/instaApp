@@ -1,8 +1,15 @@
 import $ from 'jquery'
 import axios from 'modules/axios'
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', (event) => {
   
+  const url = event.path[0].URL
+  if(url.indexOf('articles') > 0){
+    $('#switch-left').addClass('active')
+  } else if(url.indexOf('timelines') > 0) {
+    $('#switch-right').addClass('active')
+  }
+
   axios.get(`/api/picture`)
     .then((response) => {
       const pictures = response.data.pictures

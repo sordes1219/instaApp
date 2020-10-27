@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :comments, only: %i[index create destroy]
   end
 
+  resources :timelines, only: %i[index]
+
   namespace :api, defaults: {format: :json} do
     resource :picture, only: %i[show]
     resources :likes, only: %i[index]
