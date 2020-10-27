@@ -3,7 +3,7 @@ module HeaderHelper
   def display_icon
     return tag.div(class:'header-left') { |tag| link_to 'Cancel', root_path } if current_page?(new_article_path)
     return tag.div(class:'header-left') { |tag| link_to '←', root_path } if profile_page? || comments_page? || followings_page? || followers_page?
-    return tag.div(class:'header-left') { |tag| link_to new_article_path do tag.i class: 'fas fa-camera camera-icon fa-lg' end } if (current_page?(articles_path) || current_page?(root_path))
+    return tag.div(class:'header-left') { |tag| link_to new_article_path do tag.i class: 'fas fa-camera camera-icon fa-lg' end } if top_page?
     return tag.div(class:'header-left hidden')
   end
 
@@ -20,12 +20,16 @@ module HeaderHelper
     return tag.div(class:'header-right', id:'article-post-btn') { |tag| 'Post' } if current_page?(new_article_path)
     return tag.div(class:'header-left') { |tag| link_to 'Unfollow', api_relationship_path(params[:user_id]), method: 'delete' } if profile_page? && not_my_profile? && has_followed?
     return tag.div(class:'header-left') { |tag| link_to 'Follow', api_relationship_path(params[:user_id]), method: 'post' } if profile_page? && not_my_profile? && !has_followed?
-    return tag.div(class:'header-right') { |tag| link_to 'Logout', destroy_user_session_path , method: 'delete' } if (current_page?(articles_path) || current_page?(root_path)) && signed_in?
-    return tag.div(class:'header-right') { |tag| link_to 'Login', user_session_path , method: 'post' } if (current_page?(articles_path) || current_page?(root_path)) && !signed_in?
+    return tag.div(class:'header-right') { |tag| link_to 'Logout', destroy_user_session_path , method: 'delete' } if top_page? && signed_in?
+    return tag.div(class:'header-right') { |tag| link_to 'Login', user_session_path , method: 'post' } if top_page? && !signed_in?
     return tag.div(class:'header-right hidden')
   end
 
   private
+
+  def top_page?
+    current_page?(timelines_path) || current_page?(root_path) || current_page?(articles_path)
+  end
 
   def followings_page?
     params[:controller] ==  'followings' && params[:action] == 'show'
