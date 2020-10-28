@@ -22,4 +22,12 @@ class Relationship < ApplicationRecord
   belongs_to :follower, class_name: 'User'
   belongs_to :following, class_name: 'User'
 
+  after_create :sendmail
+
+  private
+
+  def sendmail
+    FollowMailer.new_follower(following, follower).deliver_later
+  end
+
 end
