@@ -7,7 +7,7 @@ const checkFileExist = () => {
       alert('ファイルが選択されていません')
       return false
     } 
-   })
+  })
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   $('#display-profile-avatar').on('click', () => {
       $('#profile-avatar').click()
-      $('#profile-post-form').submit()    
-  } )
+      $('#profile-post-form').submit()
+  })
   
 })
 
