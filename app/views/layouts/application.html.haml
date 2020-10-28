@@ -13,7 +13,11 @@
     %header
       .container
         .header
-          = display_icon
-          = display_title
-          = display_btn
+          .header-icon= display_icon
+          .header-title= display_title
+          .header-btn= display_btn
+        - if flash.present?
+          .flash
+            - flash.each do |key,value|
+              %div{ class: key }= value
     = yield
